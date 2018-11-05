@@ -17,9 +17,6 @@ axis([0 0.4 0 0.4])  % x_min x_max y_min y_max
 pbaspect([1 1 1])  % x,y,z axis ratio
 xticks(0:0.05:10)  % ticks (spacing)
 yticks(0:0.05:10)
-title('Ten Bar Truss Problem')
-xlabel('r_1','FontSize',15); 
-ylabel('r_2','FontSize',15, 'rot', 90);
 
 % l = 9.14 ;  % m
 % density = 7860 ;  % kg/m^3
@@ -54,6 +51,11 @@ end
 % Legend has it that
 legend('weight = 1e5','weight = 1.55e5','weight = 2e5','(0.2606, 0.2224)',...
     'feasible area','Location','southwest')
+
+% Figure Properties Part2
+title('Ten Bar Truss Problem')
+xlabel('r_1','FontSize',15); 
+ylabel('r_2','FontSize',15, 'rot', 90);
 
 hold off
 
