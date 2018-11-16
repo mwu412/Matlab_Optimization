@@ -5,7 +5,7 @@ lb = [0.001, 0.001] ;
 ub = [10, 10] ;
 
 options = optimoptions('fmincon',...
-    'Display','iter','Algorithm','sqp');
+    'Display','iter','Algorithm','active-set');
 % x = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options)
 [x,fval,exitflag] = fmincon('obj',x0,[],[],[],[],lb,ub,'mycon',options)
 
