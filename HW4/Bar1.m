@@ -1,4 +1,4 @@
-function [ stress, Q ] = TenBarAnalysis( r, length, E, F )
+function [stress] = Bar1(r, length, E, F)
 % TenBarAnalysis: Calculate stresses in each element by given spec. and force of the truss structure. 
 %   input: radius r (composed of r1, r2), length l, Young's modulous E,
 %   and Force array F.
@@ -63,14 +63,6 @@ Q_re=K_re^-1*F_re;
 Q=[Q_re ;zeros(4,1)];
 
 %% Stress Calculatuion 
-for i=1:10
-    stress(i,:)=E/length_e(i,:)*[-l(i,:) -m(i,:) l(i,:) m(i,:)]...
-        *[Q(ec(i,1)*2-1) Q(ec(i,1)*2) Q(ec(i,2)*2-1) Q(ec(i,2)*2)]' ;
+stress=E/length_e(1,:)*[-l(1,:) -m(1,:) l(1,:) m(1,:)]...
+        *[Q(ec(1,1)*2-1) Q(ec(1,1)*2) Q(ec(1,2)*2-1) Q(ec(1,2)*2)]' ;
 end
-
-K_R=K(9:12,:);
-R=K_R*Q;
-R=[zeros(8,1);R]; %Reactant Force on node 5 and node 6
-
-end
-
