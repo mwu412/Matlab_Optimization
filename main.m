@@ -14,7 +14,7 @@ options = optimoptions('fmincon',...
 % Figure Properties
 figure
 axis([0 0.4 0 0.4])  % x_min x_max y_min y_max
-pbaspect([1 1 1])  % x,y,z axis ratio
+axis equal  
 xticks(0:0.05:10)  % ticks (spacing)
 yticks(0:0.05:10)
 
