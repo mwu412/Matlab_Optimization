@@ -17,6 +17,6 @@ options = optimoptions('fmincon',...
     'Display','iter','Algorithm','sqp',...
     'MaxIterations',1500,'MaxFunctionEvaluations',1500);
 % x = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options)
-[t_optm,fval,exitflag] = fmincon('obj',mu0,[],[],[],[],lb,ub,'mycon',options)
+[t_optm,fval,exitflag] = fmincon('obj',mu0,[],[],[],[],lb,ub,'mycon_FOSM',options)
 
 toc
