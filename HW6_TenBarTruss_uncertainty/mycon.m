@@ -11,7 +11,7 @@ yeild_strength = 250e6 ;        % unit: Pa
 rho = 7860 ;  
 
 %% uncertainty
-samples = 100;
+samples = 1000000;
 
 c1_fail = 0;
 c2_fail = 0;
