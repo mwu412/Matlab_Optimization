@@ -4,15 +4,15 @@ clc
 
 %% fmincon
 
-x0 = [0.25 0.25] ;
+x0 = [0.4 0.4] ;
 lb = [0.01, 0.01] ;
 ub = [10, 10] ;
 
 options = optimoptions('fmincon',...
-    'Display','iter','Algorithm','active-set',...
-    'MaxIterations',1500,'MaxFunctionEvaluations',1500);
+    'Display','iter','Algorithm','interior-point',...
+    'MaxIterations',3000,'MaxFunctionEvaluations',3000);
 % x = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options)
-[x,fval,exitflag] = fmincon('obj',x0,[],[],[],[],lb,ub,'mycon',options)
+[x,fval,exitflag] = fmincon('obj',x0,[],[],[],[],lb,ub,'mycon_FOSM',options)
 
 % %% Plot r1-r2 
 % 
