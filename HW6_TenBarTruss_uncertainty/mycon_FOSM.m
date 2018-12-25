@@ -34,16 +34,16 @@ rho = 7860 ;
     pf2 = zeros(10,1);
     pf3 = 0;
 %% c1
-    mu1 = stress*1e-6 - yeild_strength*1e-6;  
+    mu1 = stress - yeild_strength;  
     for i=1:6
-        a1 = -2*stress(i)*1e-6/r(1);
+        a1 = -2*stress(i)/r(1);
         a2 = 0;
         sig=sqrt(a1^2*stdx(1)^2+a2^2*stdx(2)^2);
         pf1(i) = 1-normcdf((0-mu1(i))/sig);
     end
     for i=7:10
         a1 = 0;
-        a2 = -2*stress(i)*1e-6/r(2);
+        a2 = -2*stress(i)/r(2);
         sig=sqrt(a1^2*stdx(1)^2+a2^2*stdx(2)^2);
         pf1(i) = 1-normcdf((0-mu1(i))/sig);
     end
@@ -63,7 +63,7 @@ rho = 7860 ;
     end
 %% c3    
     mu3 = sqrt(Q(3)^2+Q(4)^2) - 0.02;
-    a1 = 0.5*(Q(3)^2+Q(4)^2)*(2*Q(3)*(-2)*Q(3)/r(1)+2*Q(4)*(-2)*Q(4)/r(1));
+    a1 = 0.5*(Q(3)^2+Q(4)^2)^(-0.5)*(2*Q(3)*(-2)*Q(3)/r(1)+2*Q(4)*(-2)*Q(4)/r(1));
     a2 = 0;
     sig=sqrt(a1^2*stdx(1)^2+a2^2*stdx(2)^2);
     pf3 = 1-normcdf((0-mu3)/sig);
